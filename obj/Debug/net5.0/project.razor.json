@@ -78,55 +78,35 @@
         }
       },
       {
-        "HashCode": -445838670,
+        "HashCode": 1726810055,
         "Kind": "Components.Component",
-        "Name": "Tarea7.Shared.SurveyPrompt",
+        "Name": "Tarea7.Shared.NavMenu",
         "AssemblyName": "Tarea7",
         "CaseSensitive": true,
         "TagMatchingRules": [
           {
-            "TagName": "SurveyPrompt"
-          }
-        ],
-        "BoundAttributes": [
-          {
-            "Kind": "Components.Component",
-            "Name": "Title",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "Title"
-            }
+            "TagName": "NavMenu"
           }
         ],
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Tarea7.Shared.SurveyPrompt"
+          "Common.TypeName": "Tarea7.Shared.NavMenu"
         }
       },
       {
-        "HashCode": -898070808,
+        "HashCode": 191174561,
         "Kind": "Components.Component",
-        "Name": "Tarea7.Shared.SurveyPrompt",
+        "Name": "Tarea7.Shared.NavMenu",
         "AssemblyName": "Tarea7",
         "CaseSensitive": true,
         "TagMatchingRules": [
           {
-            "TagName": "Tarea7.Shared.SurveyPrompt"
-          }
-        ],
-        "BoundAttributes": [
-          {
-            "Kind": "Components.Component",
-            "Name": "Title",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "Title"
-            }
+            "TagName": "Tarea7.Shared.NavMenu"
           }
         ],
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Tarea7.Shared.SurveyPrompt",
+          "Common.TypeName": "Tarea7.Shared.NavMenu",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },
@@ -227,35 +207,55 @@
         }
       },
       {
-        "HashCode": 1726810055,
+        "HashCode": -445838670,
         "Kind": "Components.Component",
-        "Name": "Tarea7.Shared.NavMenu",
+        "Name": "Tarea7.Shared.SurveyPrompt",
         "AssemblyName": "Tarea7",
         "CaseSensitive": true,
         "TagMatchingRules": [
           {
-            "TagName": "NavMenu"
+            "TagName": "SurveyPrompt"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "Title",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "Title"
+            }
           }
         ],
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Tarea7.Shared.NavMenu"
+          "Common.TypeName": "Tarea7.Shared.SurveyPrompt"
         }
       },
       {
-        "HashCode": 191174561,
+        "HashCode": -898070808,
         "Kind": "Components.Component",
-        "Name": "Tarea7.Shared.NavMenu",
+        "Name": "Tarea7.Shared.SurveyPrompt",
         "AssemblyName": "Tarea7",
         "CaseSensitive": true,
         "TagMatchingRules": [
           {
-            "TagName": "Tarea7.Shared.NavMenu"
+            "TagName": "Tarea7.Shared.SurveyPrompt"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "Title",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "Title"
+            }
           }
         ],
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Tarea7.Shared.NavMenu",
+          "Common.TypeName": "Tarea7.Shared.SurveyPrompt",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },

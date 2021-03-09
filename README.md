@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Tarea_7
 Programación III 
 
@@ -11,3 +12,6 @@ Programación III
  
  # Nota 
  Creamos una carpeta general que continen todos los proyectos, así no tendremos que para cada proyecto crear un repositorio.
+=======
+# Tarea7
+>>>>>>> parent of a52ff1b (Update README.md)
