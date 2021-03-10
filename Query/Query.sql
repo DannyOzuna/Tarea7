@@ -6,9 +6,6 @@ create table Vacuna(
 	cantidad int not null,
 	estado int default 1
 )
-drop table Persona
-drop table Vacuna
-
 
 create table Persona(
 	id int primary key identity,
@@ -23,8 +20,14 @@ create table Persona(
 	estado int default 1
 )
 
-insert into Vacuna values ('Tuberculosis', 1);
+drop table Persona
+drop table Vacuna
 
+insert into Vacuna values ('Tuberculosis', 5, 1);
+insert into Vacuna values ('Hepatitis B', 3, 1);
+
+insert into Persona values ('Danny', 'Ozuna Vasquez', '809-797-6812', '2001-11-30', 1, 'Santo Domingo', '2021-01-03','', 1);
 insert into Persona values ('Ernesto', 'Sanchez', '809-797-6812', '2001-11-30', 1, 'Santiago', '2021-01-03','', 1);
+
 
 select * from Persona
