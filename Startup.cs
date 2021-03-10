@@ -10,6 +10,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Tarea7.Data;
+using Tarea7.Data.Repositorio;
+using Microsoft.EntityFrameworkCore;
 
 namespace Tarea7
 {
@@ -29,6 +31,10 @@ namespace Tarea7
             services.AddRazorPages();
             services.AddServerSideBlazor();
             services.AddSingleton<WeatherForecastService>();
+            services.AddDbContext<AppDbContext>(
+                optionsAction => optionsAction.UseSqlServer(Configuration.GetConnectionString("Conexion"))
+                );
+            services.AddScoped<IRepositorioPersona, RepositorioPersona>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
