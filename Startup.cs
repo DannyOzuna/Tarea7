@@ -36,6 +36,7 @@ namespace Tarea7
                 optionsAction => optionsAction.UseSqlServer(Configuration.GetConnectionString("Conexion"))
                 );
             services.AddScoped<IRepositorioPersona, RepositorioPersona>();
+            services.AddScoped<IRepositorioVacuna, RepositorioVacuna>();
             services.AddSingleton<HttpClient>();
         }
 

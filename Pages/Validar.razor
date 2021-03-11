@@ -3,6 +3,8 @@
 @inject HttpClient Http
 @inject NavigationManager NavigationManager
 @using Tarea7.Models
+@using Tarea7.Data.Repositorio
+@inject IRepositorioVacuna RepositorioVacuna
 
 <div class="row justify-content-center">
     <div class="col-8">
@@ -45,31 +47,52 @@
                     <ValidationMessage For="() => persona.telefono"/>
                 </div>
             </div>
+            <div class="row justify-content-center">
+                <div class="col-3">
+                    <label>Fecha de Nacimiento:</label>
+                    <InputDate @bind-Value="fecha" class="form-control"/>
+                    <ValidationMessage For="() => persona.fecha_nacimiento"/>
+                </div>
+                <div class="col-3">
+                    <label>Vacuna Recibida:</label>
+                    <InputSelect @bind-Value="persona.id_vacuna" class="form-control">
+                        <option value="">Seleccione Vacuna...</option>
+                        @foreach (var item in lsVacuna)
+                        {
+                             <option value="@item.id">@item.marca</option>
+                        }
+                    </InputSelect>
+                    <ValidationMessage For="() => persona.id_vacuna"/>
+                </div>
+                <div class="col-3">
+                    <label>Telefono:</label>
+                    <InputText @bind-Value="persona.telefono" class="form-control"/>
+                    <ValidationMessage For="() => persona.telefono"/>
+                </div>
+            </div>
         </EditForm>
       </div>
     </div>
 </div>
 
-@if(datosCedula != null){
-    <h1>Prueba: @eliminar</h1>
-}
-
 @code{
-    string cedula = "", eliminar = "";
+    string cedula = "";
+    DateTime fecha = DateTime.Now;
     DatosCedula datosCedula = null;
     Persona persona = new Persona(); 
+    List<Vacuna> lsVacuna = new List<Vacuna>();
     private async Task Obtener(){
         var Url = "https://api.adamix.net/apec/cedula/" + cedula;
         datosCedula = await Http.GetFromJsonAsync<DatosCedula>(Url);
 
         if(datosCedula.ok){
-            //eliminar = "Usuario Entrado";
             persona.nombre = datosCedula.Nombres;
             persona.apellido = datosCedula.Apellido1 + " " + datosCedula.Apellido2;
-                       
-        }else{
-            //eliminar = "Usuario no Entrado";
+            fecha = Convert.ToDateTime(datosCedula.FechaNacimiento);
         }
-        
+    }
+
+    protected override async Task OnInitializedAsync(){
+        lsVacuna = await RepositorioVacuna.Get();
     }
 }
