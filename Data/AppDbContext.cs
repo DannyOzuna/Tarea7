@@ -8,5 +8,6 @@ namespace Tarea7.Data{
 
         }
         public DbSet<Persona> Persona {get; set;}
+        public DbSet<Vacuna> vacuna {get; set;}
     }    
 }

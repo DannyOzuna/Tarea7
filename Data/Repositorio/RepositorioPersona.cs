@@ -6,8 +6,10 @@ using Tarea7.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace Tarea7.Data.Repositorio{
-    public class RepositorioPersona:IRepositorioPersona{
+    public class RepositorioPersona:IRepositorioPersona
+    {
         public readonly AppDbContext context;
+
         public RepositorioPersona(AppDbContext context){
             this.context = context;
         }
