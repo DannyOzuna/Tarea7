@@ -12,6 +12,7 @@ using Microsoft.Extensions.Hosting;
 using Tarea7.Data;
 using Tarea7.Data.Repositorio;
 using Microsoft.EntityFrameworkCore;
+using System.Net.Http;
 
 namespace Tarea7
 {
@@ -35,6 +36,7 @@ namespace Tarea7
                 optionsAction => optionsAction.UseSqlServer(Configuration.GetConnectionString("Conexion"))
                 );
             services.AddScoped<IRepositorioPersona, RepositorioPersona>();
+            services.AddSingleton<HttpClient>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

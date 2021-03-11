@@ -111,68 +111,68 @@
         }
       },
       {
-        "HashCode": -1365356015,
+        "HashCode": -1069233560,
         "Kind": "Components.Component",
-        "Name": "Tarea7.Pages.Persona.ListadoPersona",
+        "Name": "Tarea7.Pages.RegistroVacuna",
         "AssemblyName": "Tarea7",
         "CaseSensitive": true,
         "TagMatchingRules": [
           {
-            "TagName": "ListadoPersona"
+            "TagName": "RegistroVacuna"
           }
         ],
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Tarea7.Pages.Persona.ListadoPersona"
+          "Common.TypeName": "Tarea7.Pages.RegistroVacuna"
         }
       },
       {
-        "HashCode": -1605745412,
+        "HashCode": -1877035274,
         "Kind": "Components.Component",
-        "Name": "Tarea7.Pages.Persona.ListadoPersona",
+        "Name": "Tarea7.Pages.RegistroVacuna",
         "AssemblyName": "Tarea7",
         "CaseSensitive": true,
         "TagMatchingRules": [
           {
-            "TagName": "Tarea7.Pages.Persona.ListadoPersona"
+            "TagName": "Tarea7.Pages.RegistroVacuna"
           }
         ],
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Tarea7.Pages.Persona.ListadoPersona",
+          "Common.TypeName": "Tarea7.Pages.RegistroVacuna",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },
       {
-        "HashCode": -941016220,
+        "HashCode": -934519585,
         "Kind": "Components.Component",
-        "Name": "Tarea7.App",
+        "Name": "Tarea7.Pages.Validar",
         "AssemblyName": "Tarea7",
         "CaseSensitive": true,
         "TagMatchingRules": [
           {
-            "TagName": "App"
+            "TagName": "Validar"
           }
         ],
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Tarea7.App"
+          "Common.TypeName": "Tarea7.Pages.Validar"
         }
       },
       {
-        "HashCode": -1564331534,
+        "HashCode": 1699608713,
         "Kind": "Components.Component",
-        "Name": "Tarea7.App",
+        "Name": "Tarea7.Pages.Validar",
         "AssemblyName": "Tarea7",
         "CaseSensitive": true,
         "TagMatchingRules": [
           {
-            "TagName": "Tarea7.App"
+            "TagName": "Tarea7.Pages.Validar"
           }
         ],
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Tarea7.App",
+          "Common.TypeName": "Tarea7.Pages.Validar",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },
@@ -226,6 +226,39 @@
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
           "Common.TypeName": "Tarea7.Shared.SurveyPrompt",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 1726810055,
+        "Kind": "Components.Component",
+        "Name": "Tarea7.Shared.NavMenu",
+        "AssemblyName": "Tarea7",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "NavMenu"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Tarea7.Shared.NavMenu"
+        }
+      },
+      {
+        "HashCode": 191174561,
+        "Kind": "Components.Component",
+        "Name": "Tarea7.Shared.NavMenu",
+        "AssemblyName": "Tarea7",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Tarea7.Shared.NavMenu"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Tarea7.Shared.NavMenu",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },
@@ -326,35 +359,35 @@
         }
       },
       {
-        "HashCode": 1726810055,
+        "HashCode": -941016220,
         "Kind": "Components.Component",
-        "Name": "Tarea7.Shared.NavMenu",
+        "Name": "Tarea7.App",
         "AssemblyName": "Tarea7",
         "CaseSensitive": true,
         "TagMatchingRules": [
           {
-            "TagName": "NavMenu"
+            "TagName": "App"
           }
         ],
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Tarea7.Shared.NavMenu"
+          "Common.TypeName": "Tarea7.App"
         }
       },
       {
-        "HashCode": 191174561,
+        "HashCode": -1564331534,
         "Kind": "Components.Component",
-        "Name": "Tarea7.Shared.NavMenu",
+        "Name": "Tarea7.App",
         "AssemblyName": "Tarea7",
         "CaseSensitive": true,
         "TagMatchingRules": [
           {
-            "TagName": "Tarea7.Shared.NavMenu"
+            "TagName": "Tarea7.App"
           }
         ],
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Tarea7.Shared.NavMenu",
+          "Common.TypeName": "Tarea7.App",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },
@@ -15950,6 +15983,11 @@
   "RootNamespace": "Tarea7",
   "Documents": [
     {
+      "FilePath": "c:\\Users\\danny\\Desktop\\Tarea7\\Pages\\RegistroVacuna.razor",
+      "TargetPath": "Pages\\RegistroVacuna.razor",
+      "FileKind": "component"
+    },
+    {
       "FilePath": "c:\\Users\\danny\\Desktop\\Tarea7\\Pages\\Error.cshtml",
       "TargetPath": "Pages\\Error.cshtml",
       "FileKind": "mvc"
@@ -15957,11 +15995,6 @@
     {
       "FilePath": "c:\\Users\\danny\\Desktop\\Tarea7\\App.razor",
       "TargetPath": "App.razor",
-      "FileKind": "component"
-    },
-    {
-      "FilePath": "c:\\Users\\danny\\Desktop\\Tarea7\\Pages\\Persona\\ListadoPersona.razor",
-      "TargetPath": "Pages\\Persona\\ListadoPersona.razor",
       "FileKind": "component"
     },
     {
@@ -15973,6 +16006,11 @@
       "FilePath": "c:\\Users\\danny\\Desktop\\Tarea7\\Pages\\_Host.cshtml",
       "TargetPath": "Pages\\_Host.cshtml",
       "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\danny\\Desktop\\Tarea7\\Pages\\Validar.razor",
+      "TargetPath": "Pages\\Validar.razor",
+      "FileKind": "component"
     },
     {
       "FilePath": "c:\\Users\\danny\\Desktop\\Tarea7\\Shared\\MainLayout.razor",

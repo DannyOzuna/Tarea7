@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "Yl5WN4kt6G73QFMF7wJfRMoO1RnXUK4xbiF9jKRvCkx22dDhXV+jAA+1gN9o20xcZiNLc+4ZUcHe1w+WFYfv3A==",
+  "dgSpecHash": "Ya8KPpNHM/B0mZD1/ARwdljhZmYU7+iQyIh+dL52i62I9bT06urUgzFPDd70P/sCycuFb3Z7NmG1l53Yzc7d7g==",
   "success": true,
   "projectFilePath": "C:\\Users\\danny\\Desktop\\Tarea7\\Tarea7.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\danny\\.nuget\\packages\\microsoft.aspnetcore.blazor.httpclient\\3.2.0-preview3.20168.3\\microsoft.aspnetcore.blazor.httpclient.3.2.0-preview3.20168.3.nupkg.sha512",
     "C:\\Users\\danny\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\danny\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.1\\microsoft.data.sqlclient.2.1.1.nupkg.sha512",
     "C:\\Users\\danny\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\2.1.1\\microsoft.data.sqlclient.sni.runtime.2.1.1.nupkg.sha512",
@@ -44,6 +45,7 @@
     "C:\\Users\\danny\\.nuget\\packages\\system.security.permissions\\4.7.0\\system.security.permissions.4.7.0.nupkg.sha512",
     "C:\\Users\\danny\\.nuget\\packages\\system.security.principal.windows\\4.7.0\\system.security.principal.windows.4.7.0.nupkg.sha512",
     "C:\\Users\\danny\\.nuget\\packages\\system.text.encoding.codepages\\4.7.0\\system.text.encoding.codepages.4.7.0.nupkg.sha512",
+    "C:\\Users\\danny\\.nuget\\packages\\system.text.json\\4.7.1\\system.text.json.4.7.1.nupkg.sha512",
     "C:\\Users\\danny\\.nuget\\packages\\system.windows.extensions\\4.7.0\\system.windows.extensions.4.7.0.nupkg.sha512"
   ],
   "logs": []

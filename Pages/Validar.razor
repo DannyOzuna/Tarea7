@@ -1,0 +1,75 @@
+@page "/validar"
+@using System.Net.Http.Json
+@inject HttpClient Http
+@inject NavigationManager NavigationManager
+@using Tarea7.Models
+
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div class="alert alert-info text-center">
+            <h1>Registrar Vacuna</h1>
+        </div>
+    </div>
+</div>
+
+<div class="row justify-content-center mt-md-2">
+    <div class="card col-10">
+      <div class="card-header">
+        <div class="navbar navbar-light bg-light p-0">
+          <div class="container-fluid">
+            <a class="navbar-brand">Verificar Persona</a>
+            <div class="d-flex">
+              <input class="form-control mr-1" type="search" placeholder="Digíte su Cédula..." aria-label="Search" style="width: 60%;" @bind-value="cedula">
+              <button class="btn btn-outline-success btn-md" @onclick="Obtener"><i class="oi oi-magnifying-glass"></i> Buscar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <EditForm Model="persona">
+            <DataAnnotationsValidator/>
+            <div class="row justify-content-center">
+                <div class="col-3">
+                    <label>Nombre:</label>
+                    <InputText @bind-Value="persona.nombre" class="form-control"/>
+                    <ValidationMessage For="() => persona.nombre"/>
+                </div>
+                <div class="col-3">
+                    <label>Apellidos:</label>
+                    <InputText @bind-Value="persona.apellido" class="form-control"/>
+                    <ValidationMessage For="() => persona.apellido"/>
+                </div>
+                <div class="col-3">
+                    <label>Telefono:</label>
+                    <InputText @bind-Value="persona.telefono" class="form-control"/>
+                    <ValidationMessage For="() => persona.telefono"/>
+                </div>
+            </div>
+        </EditForm>
+      </div>
+    </div>
+</div>
+
+@if(datosCedula != null){
+    <h1>Prueba: @eliminar</h1>
+}
+
+@code{
+    string cedula = "", eliminar = "";
+    DatosCedula datosCedula = null;
+    Persona persona = new Persona(); 
+    private async Task Obtener(){
+        var Url = "https://api.adamix.net/apec/cedula/" + cedula;
+        datosCedula = await Http.GetFromJsonAsync<DatosCedula>(Url);
+
+        if(datosCedula.ok){
+            //eliminar = "Usuario Entrado";
+            persona.nombre = datosCedula.Nombres;
+            persona.apellido = datosCedula.Apellido1 + " " + datosCedula.Apellido2;
+                       
+        }else{
+            //eliminar = "Usuario no Entrado";
+        }
+        
+    }
+}
