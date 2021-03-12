@@ -6,6 +6,7 @@
 @using Tarea7.Data.Repositorio
 @inject IRepositorioVacuna RepositorioVacuna
 @inject IProvincias RepositorioProvincia
+@inject IRepositorioPersona RepositorioPersona
 
 <div class="row justify-content-center">
     <div class="col-8">
@@ -28,7 +29,7 @@
           </div>
         </div>
       </div>
-        <EditForm Model="persona">
+        <EditForm Model="persona" OnValidSubmit="@(() => GuardarDatos())">
             <div class="card-body">
                 <DataAnnotationsValidator/>
                 <div class="row justify-content-center mb-3">
@@ -51,7 +52,7 @@
                 <div class="row justify-content-center mb-3">
                     <div class="col-4">
                         <label>Fecha de Nacimiento:</label>
-                        <InputDate @bind-Value="fecha" class="form-control"/>
+                        <InputDate @bind-Value="persona.fecha_nacimiento" class="form-control"/>
                         <ValidationMessage For="() => persona.fecha_nacimiento"/>
                     </div>
                     <div class="col-4">
@@ -116,6 +117,7 @@
     Persona persona = new Persona(); 
     List<Vacuna> lsVacuna = new List<Vacuna>();
     List<Provincias> lsProvincia = new List<Provincias>();
+    List<Persona> lsPersona = new List<Persona>();
     private async Task Obtener(){
         var Url = "https://api.adamix.net/apec/cedula/" + cedula;
         datosCedula = await Http.GetFromJsonAsync<DatosCedula>(Url);
@@ -123,13 +125,18 @@
         if(datosCedula.ok){
             persona.nombre = datosCedula.Nombres;
             persona.apellido = datosCedula.Apellido1 + " " + datosCedula.Apellido2;
-            fecha = Convert.ToDateTime(datosCedula.FechaNacimiento);
-            persona.id_vacuna = 2;
+            persona.fecha_nacimiento = Convert.ToDateTime(datosCedula.FechaNacimiento);
         }
     }
 
     protected override async Task OnInitializedAsync(){
         lsVacuna = await RepositorioVacuna.Get();
         lsProvincia = await RepositorioProvincia.Get();
+        lsPersona = await RepositorioPersona.Get();
+    }
+
+    private async Task GuardarDatos(){
+        var rsCrear = await RepositorioPersona.Add(persona);
+        NavigationManager.NavigateTo("/registrovacuna");
     }
 }

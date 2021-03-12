@@ -112,7 +112,7 @@ using Tarea7.Data.Repositorio;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 112 "C:\Users\danny\Desktop\Tarea7\Pages\Validar.razor"
+#line 113 "C:\Users\danny\Desktop\Tarea7\Pages\Validar.razor"
       
     string cedula = "";
     DateTime fecha = DateTime.Now;
@@ -120,6 +120,7 @@ using Tarea7.Data.Repositorio;
     Persona persona = new Persona(); 
     List<Vacuna> lsVacuna = new List<Vacuna>();
     List<Provincias> lsProvincia = new List<Provincias>();
+    List<Persona> lsPersona = new List<Persona>();
     private async Task Obtener(){
         var Url = "https://api.adamix.net/apec/cedula/" + cedula;
         datosCedula = await Http.GetFromJsonAsync<DatosCedula>(Url);
@@ -127,19 +128,25 @@ using Tarea7.Data.Repositorio;
         if(datosCedula.ok){
             persona.nombre = datosCedula.Nombres;
             persona.apellido = datosCedula.Apellido1 + " " + datosCedula.Apellido2;
-            fecha = Convert.ToDateTime(datosCedula.FechaNacimiento);
-            persona.id_vacuna = 2;
+            persona.fecha_nacimiento = Convert.ToDateTime(datosCedula.FechaNacimiento);
         }
     }
 
     protected override async Task OnInitializedAsync(){
         lsVacuna = await RepositorioVacuna.Get();
         lsProvincia = await RepositorioProvincia.Get();
+        lsPersona = await RepositorioPersona.Get();
+    }
+
+    private async Task GuardarDatos(){
+        var rsCrear = await RepositorioPersona.Add(persona);
+        NavigationManager.NavigateTo("/registrovacuna");
     }
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IRepositorioPersona RepositorioPersona { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IProvincias RepositorioProvincia { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IRepositorioVacuna RepositorioVacuna { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager NavigationManager { get; set; }
