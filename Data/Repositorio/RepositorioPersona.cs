@@ -14,18 +14,25 @@ namespace Tarea7.Data.Repositorio{
         public async Task<List<Persona>> Get(){
             return await context.Persona.ToListAsync();
         }
-        public async Task<Persona> Get(int id){
-            var personadb = await context.Persona.FindAsync(id);
+        public async Task<Persona> Get(string cedula){
+            var personadb = await context.Persona.FirstOrDefaultAsync(p => p.cedula == cedula);
             if(personadb == null){
-                return new Persona();
+                return null;
             }
             return personadb;
         }
         public async Task<Persona> Add(Persona persona){
             if(persona != null){
-                await context.AddAsync(persona);
-                await context.SaveChangesAsync();
-                return persona;
+                var personadb = await context.Persona.FirstOrDefaultAsync(p => p.cedula == persona.cedula);
+                if(personadb == null){
+                    persona.fecha_vacuna2 = persona.fecha_vacuna1;
+                    persona.estado = 1;
+                    await context.AddAsync(persona);
+                    await context.SaveChangesAsync();
+                    return persona;
+                }else{
+                    return null;
+                }
             }else{
                 return new Persona();
             }

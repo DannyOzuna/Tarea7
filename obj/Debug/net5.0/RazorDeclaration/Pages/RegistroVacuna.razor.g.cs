@@ -82,6 +82,13 @@ using Tarea7.Shared;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 11 "C:\Users\danny\Desktop\Tarea7\_Imports.razor"
+using Tarea7.Helpers;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/registrovacuna")]
     public partial class RegistroVacuna : Microsoft.AspNetCore.Components.ComponentBase
     {

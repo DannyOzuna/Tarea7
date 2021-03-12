@@ -8,6 +8,8 @@ namespace Tarea7.Data.Repositorio{
     public interface IRepositorioVacuna{
         //Obtener el listado de Vacuna
         public Task<List<Vacuna>> Get();
+
+        public Task<List<Vacuna>> Select();
         //Obtener una Vacuna en especifico
         public Task<Vacuna> Get(int id);
         //Actulizar una Vacuna

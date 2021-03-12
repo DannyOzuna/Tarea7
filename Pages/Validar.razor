@@ -3,15 +3,17 @@
 @inject HttpClient Http
 @inject NavigationManager NavigationManager
 @using Tarea7.Models
+@using Tarea7.Data
 @using Tarea7.Data.Repositorio
 @inject IRepositorioVacuna RepositorioVacuna
 @inject IProvincias RepositorioProvincia
 @inject IRepositorioPersona RepositorioPersona
+@inject IJSRuntime js
 
 <div class="row justify-content-center">
     <div class="col-8">
         <div class="alert alert-info text-center">
-            <h1>Registrar Vacuna</h1>
+            <h1>Registro de Vacuna</h1>
         </div>
     </div>
 </div>
@@ -23,7 +25,7 @@
           <div class="container-fluid">
             <a class="navbar-brand">Verificar Persona</a>
             <div class="d-flex">
-              <input class="form-control mr-1" type="search" placeholder="Digíte su Cédula..." aria-label="Search" style="width: 60%;" @bind-value="cedula">
+              <input class="form-control mr-2" type="search" placeholder="Digíte su Cédula..." aria-label="Search" style="width: 60%;" @bind-value="cedula">
               <button class="btn btn-outline-success btn-md" @onclick="Obtener"><i class="oi oi-magnifying-glass"></i> Buscar</button>
             </div>
           </div>
@@ -51,13 +53,18 @@
                 </div>
                 <div class="row justify-content-center mb-3">
                     <div class="col-4">
+                        <label>Cédula:</label>
+                        <InputText @bind-Value="persona.cedula" class="form-control"/>
+                        <ValidationMessage For="() => persona.cedula"/>
+                    </div>
+                    <div class="col-4">
                         <label>Fecha de Nacimiento:</label>
                         <InputDate @bind-Value="persona.fecha_nacimiento" class="form-control"/>
                         <ValidationMessage For="() => persona.fecha_nacimiento"/>
                     </div>
                     <div class="col-4">
                         <label>Vacuna Recibida:</label>
-                        <InputSelect @bind-Value="persona.id_vacuna" class="form-control">
+                        <InputSelect @bind-Value="persona.id_vacuna" id = "prueba" class="form-control">
                             <option value="">Seleccione Vacuna...</option>
                             @foreach (var item in lsVacuna)
                             {
@@ -66,6 +73,8 @@
                         </InputSelect>
                         <ValidationMessage For="() => persona.id_vacuna"/>
                     </div>
+                </div>
+                <div class="row mb-3">
                     <div class="col-4">
                         <label>Provincia:</label>
                         <InputSelect @bind-Value="persona.provincia" class="form-control">
@@ -77,66 +86,107 @@
                         </InputSelect>
                         <ValidationMessage For="() => persona.provincia"/>
                     </div>
-                </div>
-                <div class="row mb-3">
                     <div class="col-4">
                         <label>Fecha de 1ra Vacuna:</label>
                         <InputDate @bind-Value="persona.fecha_vacuna1" class="form-control"/>
                         <ValidationMessage For="() => persona.fecha_vacuna1"/>
                     </div>
-                    <div class="col-4">
-                        <label>Fecha de 2da Vacuna:</label>
-                        <InputDate @bind-Value="persona.fecha_vacuna2" class="form-control"/>
-                        <ValidationMessage For="() => persona.fecha_vacuna2"/>
-                    </div>
-                    <div class="col-2">
-                        <label>Estado:</label>
-                        <InputSelect @bind-Value="persona.estado" class="form-control">
-                            <option value="1">Activo</option>
-                            <option value="0">Inactivo</option>
-                        </InputSelect>
-                    </div>
+                    @if(validarDosis){
+                        <div class="col-4">
+                            <label>Fecha de 2da Vacuna:</label>
+                            <InputDate @bind-Value="persona.fecha_vacuna2" class="form-control"/>
+                            <ValidationMessage For="() => persona.fecha_vacuna2"/>
+                        </div>
+                        <div class="col-2 mt-3">
+                            <label>Estado:</label>
+                            <InputSelect @bind-Value="persona.estado" class="form-control">
+                                <option value="1">Activo</option>
+                                <option value="0">Inactivo</option>
+                            </InputSelect>
+                        </div>
+                    }
                 </div>
             </div>
             <div class="card-footer">
-                <div class="row justify-content-end">
-                    <div class="col-3">
-                        <button type="button" class="btn btn-danger">Cancelar</button>
-                        <button type="submit" class="btn btn-primary mr-1">Guardar</button>
-                    </div>
+                <div class="row justify-content-center">
+                    <button type="submit" class="btn btn-outline-primary col-8 bn-lg">Guardar</button>
                 </div>
             </div>
         </EditForm>
     </div>
 </div>
 
+@if(errores){
+    <div class="row justify-content-center mt-4">
+        <div class="col-5 text-center alert alert-danger">
+            <h1>Cédula No Encontrada</h1>
+            <p>Registre los datos manualmente</p>
+        </div>
+    </div>
+}
+
 @code{
+    int id = 0;
     string cedula = "";
+    bool errores = false, validarDosis = false;
     DateTime fecha = DateTime.Now;
     DatosCedula datosCedula = null;
     Persona persona = new Persona(); 
+    ObtenerSigno signo = new ObtenerSigno();
     List<Vacuna> lsVacuna = new List<Vacuna>();
     List<Provincias> lsProvincia = new List<Provincias>();
     List<Persona> lsPersona = new List<Persona>();
+
     private async Task Obtener(){
+        errores = false;
         var Url = "https://api.adamix.net/apec/cedula/" + cedula;
         datosCedula = await Http.GetFromJsonAsync<DatosCedula>(Url);
-
         if(datosCedula.ok){
             persona.nombre = datosCedula.Nombres;
             persona.apellido = datosCedula.Apellido1 + " " + datosCedula.Apellido2;
             persona.fecha_nacimiento = Convert.ToDateTime(datosCedula.FechaNacimiento);
+            persona.cedula = cedula;
+        }else{
+            errores = true;
+        }
+
+        //Esto para valirdar si el usuarario esta registrodo y mostromos sus datos 
+
+        var personadb = await RepositorioPersona.Get(cedula);
+        if(personadb != null){
+            id = personadb.id;
+            persona.provincia = personadb.provincia;
+            persona.telefono = personadb.telefono;
+            persona.id_vacuna = personadb.id_vacuna;
+            persona.cedula = personadb.cedula;
+            persona.fecha_vacuna1 = personadb.fecha_vacuna1;
+            persona.estado = personadb.estado;
+            if(personadb.fecha_vacuna2 != null){
+                validarDosis = true;
+            }
         }
     }
 
     protected override async Task OnInitializedAsync(){
-        lsVacuna = await RepositorioVacuna.Get();
+        errores = false;
+        lsVacuna = await RepositorioVacuna.Select();
         lsProvincia = await RepositorioProvincia.Get();
         lsPersona = await RepositorioPersona.Get();
+        persona.fecha_vacuna1 = fecha;
+        persona.fecha_vacuna2 = fecha;
+        persona.fecha_nacimiento = fecha;
     }
 
     private async Task GuardarDatos(){
+        errores = false;
+        int dia = Convert.ToInt16(Convert.ToDateTime(persona.fecha_nacimiento).ToString("dd"));
+        int mes = Convert.ToInt16(Convert.ToDateTime(persona.fecha_nacimiento).ToString("MM"));
+        persona.SignoZodiacal = signo.signo(dia,mes).ToUpper();
         var rsCrear = await RepositorioPersona.Add(persona);
+        if(rsCrear == null){
+            var rsModificar = await RepositorioPersona.Update(id, persona);
+        }
+        var rs = await js.InvokeAsync<object>("msjAlert", "Registrado Correctamente", "success");
         NavigationManager.NavigateTo("/registrovacuna");
     }
 }

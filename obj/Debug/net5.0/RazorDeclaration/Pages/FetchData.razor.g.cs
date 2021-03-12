@@ -83,6 +83,13 @@ using Tarea7.Shared;
 #line hidden
 #nullable disable
 #nullable restore
+#line 11 "C:\Users\danny\Desktop\Tarea7\_Imports.razor"
+using Tarea7.Helpers;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 3 "C:\Users\danny\Desktop\Tarea7\Pages\FetchData.razor"
 using Tarea7.Data;
 

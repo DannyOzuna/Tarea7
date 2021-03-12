@@ -78,39 +78,6 @@
         }
       },
       {
-        "HashCode": -144908218,
-        "Kind": "Components.Component",
-        "Name": "Tarea7.Pages.Index",
-        "AssemblyName": "Tarea7",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Index"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Tarea7.Pages.Index"
-        }
-      },
-      {
-        "HashCode": -2044064898,
-        "Kind": "Components.Component",
-        "Name": "Tarea7.Pages.Index",
-        "AssemblyName": "Tarea7",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Tarea7.Pages.Index"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Tarea7.Pages.Index",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
         "HashCode": -1069233560,
         "Kind": "Components.Component",
         "Name": "Tarea7.Pages.RegistroVacuna",
@@ -140,6 +107,39 @@
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
           "Common.TypeName": "Tarea7.Pages.RegistroVacuna",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -144908218,
+        "Kind": "Components.Component",
+        "Name": "Tarea7.Pages.Index",
+        "AssemblyName": "Tarea7",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Index"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Tarea7.Pages.Index"
+        }
+      },
+      {
+        "HashCode": -2044064898,
+        "Kind": "Components.Component",
+        "Name": "Tarea7.Pages.Index",
+        "AssemblyName": "Tarea7",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Tarea7.Pages.Index"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Tarea7.Pages.Index",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },

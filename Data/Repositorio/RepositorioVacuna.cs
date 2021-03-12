@@ -12,6 +12,9 @@ namespace Tarea7.Data.Repositorio{
             this.context = context;
         }
 
+        public async Task<List<Vacuna>> Select(){
+            return await context.Vacuna.Where(v => v.cantidad > 0).ToListAsync();
+        }
         public async Task<List<Vacuna>> Get(){
             return await context.Vacuna.ToListAsync();
         }
