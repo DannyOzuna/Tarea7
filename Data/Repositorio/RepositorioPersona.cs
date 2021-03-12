@@ -13,6 +13,8 @@ namespace Tarea7.Data.Repositorio{
         public RepositorioPersona(AppDbContext context){
             this.context = context;
         }
+
+        
         public async Task<List<Persona>> Get(){
             return await context.Persona.ToListAsync();
         }

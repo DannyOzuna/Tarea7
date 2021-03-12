@@ -11,9 +11,9 @@ namespace Tarea7.Data.Repositorio{
         //Obtener una persona en especifico
         public Task<Vacuna> Get(int id);
         //Actulizar una persona
-        public Task<Vacuna> Update(int id, Vacuna persona);
+        public Task<Vacuna> Update(int id, Vacuna vacuna);
         //Crea una persona
-        public Task<Vacuna> Add(Vacuna persona);
+        public Task<Vacuna> Add(Vacuna vacuna);
         //Elimina una persona
         public Task Delete(int id);
 
