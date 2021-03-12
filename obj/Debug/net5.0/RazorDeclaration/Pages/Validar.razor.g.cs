@@ -112,13 +112,14 @@ using Tarea7.Data.Repositorio;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 78 "C:\Users\danny\Desktop\Tarea7\Pages\Validar.razor"
+#line 112 "C:\Users\danny\Desktop\Tarea7\Pages\Validar.razor"
       
     string cedula = "";
     DateTime fecha = DateTime.Now;
     DatosCedula datosCedula = null;
     Persona persona = new Persona(); 
     List<Vacuna> lsVacuna = new List<Vacuna>();
+    List<Provincias> lsProvincia = new List<Provincias>();
     private async Task Obtener(){
         var Url = "https://api.adamix.net/apec/cedula/" + cedula;
         datosCedula = await Http.GetFromJsonAsync<DatosCedula>(Url);
@@ -127,16 +128,19 @@ using Tarea7.Data.Repositorio;
             persona.nombre = datosCedula.Nombres;
             persona.apellido = datosCedula.Apellido1 + " " + datosCedula.Apellido2;
             fecha = Convert.ToDateTime(datosCedula.FechaNacimiento);
+            persona.id_vacuna = 2;
         }
     }
 
     protected override async Task OnInitializedAsync(){
         lsVacuna = await RepositorioVacuna.Get();
+        lsProvincia = await RepositorioProvincia.Get();
     }
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IProvincias RepositorioProvincia { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IRepositorioVacuna RepositorioVacuna { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager NavigationManager { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private HttpClient Http { get; set; }

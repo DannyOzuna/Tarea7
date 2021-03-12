@@ -37,6 +37,7 @@ namespace Tarea7
                 );
             services.AddScoped<IRepositorioPersona, RepositorioPersona>();
             services.AddScoped<IRepositorioVacuna, RepositorioVacuna>();
+            services.AddScoped<IProvincias, RepositorioProvincia>();
             services.AddSingleton<HttpClient>();
         }
 

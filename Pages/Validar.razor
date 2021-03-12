@@ -5,6 +5,7 @@
 @using Tarea7.Models
 @using Tarea7.Data.Repositorio
 @inject IRepositorioVacuna RepositorioVacuna
+@inject IProvincias RepositorioProvincia
 
 <div class="row justify-content-center">
     <div class="col-8">
@@ -27,51 +28,84 @@
           </div>
         </div>
       </div>
-      <div class="card-body">
         <EditForm Model="persona">
-            <DataAnnotationsValidator/>
-            <div class="row justify-content-center">
-                <div class="col-3">
-                    <label>Nombre:</label>
-                    <InputText @bind-Value="persona.nombre" class="form-control"/>
-                    <ValidationMessage For="() => persona.nombre"/>
+            <div class="card-body">
+                <DataAnnotationsValidator/>
+                <div class="row justify-content-center mb-3">
+                    <div class="col-4">
+                        <label>Nombre:</label>
+                        <InputText @bind-Value="persona.nombre" class="form-control"/>
+                        <ValidationMessage For="() => persona.nombre"/>
+                    </div>
+                    <div class="col-4">
+                        <label>Apellidos:</label>
+                        <InputText @bind-Value="persona.apellido" class="form-control"/>
+                        <ValidationMessage For="() => persona.apellido"/>
+                    </div>
+                    <div class="col-4">
+                        <label>Telefono:</label>
+                        <InputText @bind-Value="persona.telefono" class="form-control"/>
+                        <ValidationMessage For="() => persona.telefono"/>
+                    </div>
                 </div>
-                <div class="col-3">
-                    <label>Apellidos:</label>
-                    <InputText @bind-Value="persona.apellido" class="form-control"/>
-                    <ValidationMessage For="() => persona.apellido"/>
+                <div class="row justify-content-center mb-3">
+                    <div class="col-4">
+                        <label>Fecha de Nacimiento:</label>
+                        <InputDate @bind-Value="fecha" class="form-control"/>
+                        <ValidationMessage For="() => persona.fecha_nacimiento"/>
+                    </div>
+                    <div class="col-4">
+                        <label>Vacuna Recibida:</label>
+                        <InputSelect @bind-Value="persona.id_vacuna" class="form-control">
+                            <option value="">Seleccione Vacuna...</option>
+                            @foreach (var item in lsVacuna)
+                            {
+                                 <option value="@item.id">@item.marca</option>
+                            }
+                        </InputSelect>
+                        <ValidationMessage For="() => persona.id_vacuna"/>
+                    </div>
+                    <div class="col-4">
+                        <label>Provincia:</label>
+                        <InputSelect @bind-Value="persona.provincia" class="form-control">
+                            <option value="">Sel. Provinicia...</option>
+                            @foreach (var item in lsProvincia)
+                            {
+                                 <option value="@item.ProvinciaID">@item.Nombre</option>
+                            }
+                        </InputSelect>
+                        <ValidationMessage For="() => persona.provincia"/>
+                    </div>
                 </div>
-                <div class="col-3">
-                    <label>Telefono:</label>
-                    <InputText @bind-Value="persona.telefono" class="form-control"/>
-                    <ValidationMessage For="() => persona.telefono"/>
+                <div class="row mb-3">
+                    <div class="col-4">
+                        <label>Fecha de 1ra Vacuna:</label>
+                        <InputDate @bind-Value="persona.fecha_vacuna1" class="form-control"/>
+                        <ValidationMessage For="() => persona.fecha_vacuna1"/>
+                    </div>
+                    <div class="col-4">
+                        <label>Fecha de 2da Vacuna:</label>
+                        <InputDate @bind-Value="persona.fecha_vacuna2" class="form-control"/>
+                        <ValidationMessage For="() => persona.fecha_vacuna2"/>
+                    </div>
+                    <div class="col-2">
+                        <label>Estado:</label>
+                        <InputSelect @bind-Value="persona.estado" class="form-control">
+                            <option value="1">Activo</option>
+                            <option value="0">Inactivo</option>
+                        </InputSelect>
+                    </div>
                 </div>
             </div>
-            <div class="row justify-content-center">
-                <div class="col-3">
-                    <label>Fecha de Nacimiento:</label>
-                    <InputDate @bind-Value="fecha" class="form-control"/>
-                    <ValidationMessage For="() => persona.fecha_nacimiento"/>
-                </div>
-                <div class="col-3">
-                    <label>Vacuna Recibida:</label>
-                    <InputSelect @bind-Value="persona.id_vacuna" class="form-control">
-                        <option value="">Seleccione Vacuna...</option>
-                        @foreach (var item in lsVacuna)
-                        {
-                             <option value="@item.id">@item.marca</option>
-                        }
-                    </InputSelect>
-                    <ValidationMessage For="() => persona.id_vacuna"/>
-                </div>
-                <div class="col-3">
-                    <label>Telefono:</label>
-                    <InputText @bind-Value="persona.telefono" class="form-control"/>
-                    <ValidationMessage For="() => persona.telefono"/>
+            <div class="card-footer">
+                <div class="row justify-content-end">
+                    <div class="col-3">
+                        <button type="button" class="btn btn-danger">Cancelar</button>
+                        <button type="submit" class="btn btn-primary mr-1">Guardar</button>
+                    </div>
                 </div>
             </div>
         </EditForm>
-      </div>
     </div>
 </div>
 
@@ -81,6 +115,7 @@
     DatosCedula datosCedula = null;
     Persona persona = new Persona(); 
     List<Vacuna> lsVacuna = new List<Vacuna>();
+    List<Provincias> lsProvincia = new List<Provincias>();
     private async Task Obtener(){
         var Url = "https://api.adamix.net/apec/cedula/" + cedula;
         datosCedula = await Http.GetFromJsonAsync<DatosCedula>(Url);
@@ -89,10 +124,12 @@
             persona.nombre = datosCedula.Nombres;
             persona.apellido = datosCedula.Apellido1 + " " + datosCedula.Apellido2;
             fecha = Convert.ToDateTime(datosCedula.FechaNacimiento);
+            persona.id_vacuna = 2;
         }
     }
 
     protected override async Task OnInitializedAsync(){
         lsVacuna = await RepositorioVacuna.Get();
+        lsProvincia = await RepositorioProvincia.Get();
     }
 }
