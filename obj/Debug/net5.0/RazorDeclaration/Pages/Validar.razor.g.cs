@@ -83,13 +83,6 @@ using Tarea7.Shared;
 #line hidden
 #nullable disable
 #nullable restore
-#line 11 "C:\Users\danny\Desktop\Tarea7\_Imports.razor"
-using Tarea7.Helpers;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
 #line 2 "C:\Users\danny\Desktop\Tarea7\Pages\Validar.razor"
 using System.Net.Http.Json;
 
@@ -189,7 +182,7 @@ using Tarea7.Data.Repositorio;
             var rsModificar = await RepositorioPersona.Update(id, persona);
         }
         var rs = await js.InvokeAsync<object>("msjAlert", "Registrado Correctamente", "success");
-        NavigationManager.NavigateTo("/registrovacuna");
+        NavigationManager.NavigateTo("/registrovacuna/"+id);
     }
 
 #line default

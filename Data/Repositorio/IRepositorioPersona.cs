@@ -10,6 +10,7 @@ namespace Tarea7.Data.Repositorio{
         public Task<List<Persona>> Get();
         //Obtener una persona en especifico
         public Task<Persona> Get(string cedula);
+        public Task<List<PersonaJoin>> Get(int id);
         //Actulizar una persona
         public Task<Persona> Update(int id, Persona persona);
         //Crea una persona

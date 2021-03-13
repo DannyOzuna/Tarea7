@@ -81,7 +81,14 @@ using Tarea7.Shared;
 #nullable disable
 #nullable restore
 #line 11 "C:\Users\danny\Desktop\Tarea7\_Imports.razor"
-using Tarea7.Helpers;
+using Tarea7.Models;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 12 "C:\Users\danny\Desktop\Tarea7\_Imports.razor"
+using Tarea7.Data.Repositorio;
 
 #line default
 #line hidden

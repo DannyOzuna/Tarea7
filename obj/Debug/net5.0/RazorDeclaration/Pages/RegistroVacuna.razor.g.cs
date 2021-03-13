@@ -84,12 +84,19 @@ using Tarea7.Shared;
 #nullable disable
 #nullable restore
 #line 11 "C:\Users\danny\Desktop\Tarea7\_Imports.razor"
-using Tarea7.Helpers;
+using Tarea7.Models;
 
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/registrovacuna")]
+#nullable restore
+#line 12 "C:\Users\danny\Desktop\Tarea7\_Imports.razor"
+using Tarea7.Data.Repositorio;
+
+#line default
+#line hidden
+#nullable disable
+    [Microsoft.AspNetCore.Components.RouteAttribute("/registrovacuna/{id:int}")]
     public partial class RegistroVacuna : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -97,6 +104,31 @@ using Tarea7.Helpers;
         {
         }
         #pragma warning restore 1998
+#nullable restore
+#line 36 "C:\Users\danny\Desktop\Tarea7\Pages\RegistroVacuna.razor"
+       
+    [Parameter]
+    public int id {get; set;}
+    List<PersonaJoin> personaJoin = null;
+    protected override async Task OnInitializedAsync(){
+        personaJoin = await RepositorioPersona.Get(id);
+    }
+
+   public async Task EliminarDatos(){ 
+        var confimacion = await js.InvokeAsync<bool>("msjConfim", "Confimar", "Seguro de borrar el registro?", "question");
+        if(confimacion){
+            await js.InvokeAsync<object>("msjAlert", "Eliminado Correctamente", "success");
+            await RepositorioPersona.Delete(id);
+            NavigationManager.NavigateTo("/buscarvacuna");
+        }
+    }
+
+#line default
+#line hidden
+#nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager NavigationManager { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IJSRuntime js { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IRepositorioPersona RepositorioPersona { get; set; }
     }
 }
 #pragma warning restore 1591

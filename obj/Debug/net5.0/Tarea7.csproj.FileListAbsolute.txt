@@ -151,3 +151,5 @@ C:\Users\danny\Desktop\Tarea7\obj\Debug\net5.0\Razor\Pages\Validar.razor.g.cs
 C:\Users\danny\Desktop\Tarea7\bin\Debug\net5.0\Microsoft.AspNetCore.Blazor.HttpClient.dll
 C:\Users\danny\Desktop\Tarea7\obj\Debug\net5.0\RazorDeclaration\Pages\RegistroVacuna.razor.g.cs
 C:\Users\danny\Desktop\Tarea7\obj\Debug\net5.0\Razor\Pages\RegistroVacuna.razor.g.cs
+C:\Users\danny\Desktop\Tarea7\obj\Debug\net5.0\RazorDeclaration\Pages\BuscarVacuna.razor.g.cs
+C:\Users\danny\Desktop\Tarea7\obj\Debug\net5.0\Razor\Pages\BuscarVacuna.razor.g.cs

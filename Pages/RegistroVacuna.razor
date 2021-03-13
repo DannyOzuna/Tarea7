@@ -1,3 +1,52 @@
-@page "/registrovacuna"
+@page "/registrovacuna/{id:int}"
+@inject IRepositorioPersona RepositorioPersona
+@inject IJSRuntime js
+@inject NavigationManager NavigationManager
 
-<h3>Prueba</h3>
+<div class="row justify-content-center mt-4">
+    <div class="col-8 shadow p-3 mb-5 bg-white rounded ">
+        <h2 class="col-12 alert alert-primary rounded text-center">Registro de Vacuna</h2>
+        @if(personaJoin != null){
+            @foreach (var persona in personaJoin.Take(1))
+            {
+                <div class="row d-flex justify-content-around my-3">
+                    <div class="col-5">
+                        <p style="font-size: 13pt;"><span style="font-weight: bold;">Nombre: </span> @persona.nombre </p>  
+                        <p style="font-size: 13pt;"><span style="font-weight: bold;">Apellidos: </span> @persona.apellido</p>  
+                        <p style="font-size: 13pt;"><span style="font-weight: bold;">Cédula: </span> @persona.cedula</p>  
+                        <p style="font-size: 13pt;"><span style="font-weight: bold;">F. Nacimiento: </span> @persona.fecha_nacimiento.ToString("MM/dd/yyyy")</p>  
+                        <p style="font-size: 13pt;"><span style="font-weight: bold;">Signo del Zodiaco: </span> @persona.SignoZodiacal</p>  
+                    </div>
+                    <div class="col-5">
+                        <p style="font-size: 13pt;"><span style="font-weight: bold;">Vacuna: </span> @persona.vacuna</p>  
+                        <p style="font-size: 13pt;"><span style="font-weight: bold;">Provincia: </span> @persona.provincia</p>  
+                        <p style="font-size: 13pt;"><span style="font-weight: bold;">1ra Vacuna: </span> @persona.fecha_vacuna1.ToString("MM/dd/yyyy")</p>  
+                        <p style="font-size: 13pt;"><span style="font-weight: bold;">2da Vacuna: </span> @persona.fecha_vacuna2.ToString("MM/dd/yyyy")</p>
+                        <p style="font-size: 13pt;"><span style="font-weight: bold;">Teléfono: </span> @persona.telefono</p>    
+                    </div>
+                </div>
+            }
+        }
+        <div class="row justify-content-center">
+            <button class="btn btn-outline-danger col-8 bn-lg" @onclick="EliminarDatos">Eliminar</button>
+        </div>
+    </div>    
+</div>
+
+@code {
+    [Parameter]
+    public int id {get; set;}
+    List<PersonaJoin> personaJoin = null;
+    protected override async Task OnInitializedAsync(){
+        personaJoin = await RepositorioPersona.Get(id);
+    }
+
+   public async Task EliminarDatos(){ 
+        var confimacion = await js.InvokeAsync<bool>("msjConfim", "Confimar", "Seguro de borrar el registro?", "question");
+        if(confimacion){
+            await js.InvokeAsync<object>("msjAlert", "Eliminado Correctamente", "success");
+            await RepositorioPersona.Delete(id);
+            NavigationManager.NavigateTo("/buscarvacuna");
+        }
+    }
+}

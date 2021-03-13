@@ -8,6 +8,23 @@ function msjAlert(title, icon){
       })
 }
 
+function msjConfim(title,text,icon){
+    return new Promise (resolve => {
+        Swal.fire({
+            title,
+            text,
+            icon,
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            cancelButtonText: 'Cancelar',
+            confirmButtonText: '¡Sí, bórralo!'
+          }).then((result) => {
+              resolve(result.isConfirmed);
+          })
+    })
+}
+
 //Funcion mascara para los elementos (http://javascript.tunait.com/javascript/?s=mascara#codigo).
 function mascara(d,sep,pat,nums){
     if(d.valant != d.value){
@@ -44,5 +61,5 @@ function mascara(d,sep,pat,nums){
         }
         d.value = val
         d.valant = val
-        }
-    }//Fin de la funcion mascara para los elementos.
+    }
+}//Fin de la funcion mascara para los elementos.

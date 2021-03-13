@@ -1,0 +1,41 @@
+@page "/buscarvacuna"
+@inject IRepositorioPersona RepositorioPersona
+@inject NavigationManager NavigationManager
+@inject IJSRuntime js
+
+
+<div class="row justify-content-center" style="height: 500px;">
+    <div class="col-6 align-self-center text-center">
+        <div class="card shadow p-3 mb-5 bg-body rounded">
+          <h5 class="card-header">Verficar Vacuna</h5>
+          <div class="card-body">
+            <div class="container-fluid">
+              <div class="d-flex">
+                <input class="form-control mr-2" @bind-value="cedula" type="search" placeholder="Digíte su Cédula..." aria-label="Search">
+                <button class="btn btn-outline-success" @onclick="obtenerDatos">Buscar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        @if(spinner){
+            <div class="spinner-border mt-5 text-info" style="width: 3rem; height: 3rem;" role="status"></div>
+        }
+    </div>
+</div>
+
+
+@code{
+    string cedula = "";
+    bool error = false, spinner = false;
+
+    private async Task obtenerDatos(){
+        spinner = true;
+        var rs = await RepositorioPersona.Get(cedula);
+        spinner = false;
+        if(rs == null){
+            await js.InvokeAsync<object>("msjAlert", "Registro No Encontrado", "error");
+        }else{
+            NavigationManager.NavigateTo("/registrovacuna/"+rs.id);
+        }
+    }
+}

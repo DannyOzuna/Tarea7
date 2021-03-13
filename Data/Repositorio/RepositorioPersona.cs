@@ -21,6 +21,31 @@ namespace Tarea7.Data.Repositorio{
             }
             return personadb;
         }
+        public async Task<List<PersonaJoin>> Get(int id){
+            var personadb = await (from p in context.Persona 
+                                    join v in context.Vacuna on p.id_vacuna equals v.id
+                                    join pr in context.Provincias on p.provincia equals pr.ProvinciaID
+                                    where p.id == id
+                                    select new PersonaJoin
+                                    {
+                                        nombre = p.nombre,
+                                        apellido = p.apellido,
+                                        telefono = p.telefono,
+                                        fecha_nacimiento = p.fecha_nacimiento,
+                                        vacuna = v.marca,
+                                        provincia = pr.Nombre,
+                                        cedula = p.cedula,
+                                        fecha_vacuna1 = p.fecha_vacuna1,
+                                        fecha_vacuna2 = p.fecha_vacuna2,
+                                        SignoZodiacal = p.SignoZodiacal,
+                                        estado = p.estado
+                                    }
+                                    ).ToListAsync();
+            if(personadb == null){
+                return null;
+            }
+            return personadb;
+        }
         public async Task<Persona> Add(Persona persona){
             if(persona != null){
                 var personadb = await context.Persona.FirstOrDefaultAsync(p => p.cedula == persona.cedula);

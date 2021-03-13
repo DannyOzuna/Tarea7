@@ -111,39 +111,6 @@
         }
       },
       {
-        "HashCode": -1069233560,
-        "Kind": "Components.Component",
-        "Name": "Tarea7.Pages.RegistroVacuna",
-        "AssemblyName": "Tarea7",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "RegistroVacuna"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Tarea7.Pages.RegistroVacuna"
-        }
-      },
-      {
-        "HashCode": -1877035274,
-        "Kind": "Components.Component",
-        "Name": "Tarea7.Pages.RegistroVacuna",
-        "AssemblyName": "Tarea7",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Tarea7.Pages.RegistroVacuna"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Tarea7.Pages.RegistroVacuna",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
         "HashCode": -934519585,
         "Kind": "Components.Component",
         "Name": "Tarea7.Pages.Validar",
@@ -173,6 +140,59 @@
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
           "Common.TypeName": "Tarea7.Pages.Validar",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -1493619252,
+        "Kind": "Components.Component",
+        "Name": "Tarea7.Pages.RegistroVacuna",
+        "AssemblyName": "Tarea7",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "RegistroVacuna"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "id",
+            "TypeName": "System.Int32",
+            "Metadata": {
+              "Common.PropertyName": "id"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Tarea7.Pages.RegistroVacuna"
+        }
+      },
+      {
+        "HashCode": -562919375,
+        "Kind": "Components.Component",
+        "Name": "Tarea7.Pages.RegistroVacuna",
+        "AssemblyName": "Tarea7",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Tarea7.Pages.RegistroVacuna"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "id",
+            "TypeName": "System.Int32",
+            "Metadata": {
+              "Common.PropertyName": "id"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Tarea7.Pages.RegistroVacuna",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },
@@ -15985,6 +16005,11 @@
     {
       "FilePath": "c:\\Users\\danny\\Desktop\\Tarea7\\Pages\\RegistroVacuna.razor",
       "TargetPath": "Pages\\RegistroVacuna.razor",
+      "FileKind": "component"
+    },
+    {
+      "FilePath": "c:\\Users\\danny\\Desktop\\Tarea7\\Pages\\buscarVacuna.razor",
+      "TargetPath": "Pages\\buscarVacuna.razor",
       "FileKind": "component"
     },
     {
