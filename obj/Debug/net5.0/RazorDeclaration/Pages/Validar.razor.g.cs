@@ -83,6 +83,13 @@ using Tarea7.Shared;
 #line hidden
 #nullable disable
 #nullable restore
+#line 13 "C:\Users\danny\Desktop\Tarea7\_Imports.razor"
+using MudBlazor;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 2 "C:\Users\danny\Desktop\Tarea7\Pages\Validar.razor"
 using System.Net.Http.Json;
 

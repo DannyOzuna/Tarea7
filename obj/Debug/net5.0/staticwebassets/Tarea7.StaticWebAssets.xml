@@ -1,3 +1,7 @@
 ﻿<StaticWebAssets Version="1.0">
+  <ContentRoot BasePath="_content/Blazored.Modal" Path="C:\Users\danny\.nuget\packages\blazored.modal\6.0.1\build\..\staticwebassets\" />
+  <ContentRoot BasePath="_content/BlazorInputMask" Path="C:\Users\danny\.nuget\packages\blazorinputmask\1.0.5\build\..\staticwebassets\" />
+  <ContentRoot BasePath="_content/MudBlazor" Path="C:\Users\danny\.nuget\packages\mudblazor\5.0.5\build\..\staticwebassets\" />
+  <ContentRoot BasePath="_content/Syncfusion.Blazor" Path="C:\Users\danny\.nuget\packages\syncfusion.blazor\18.4.0.47\build\..\staticwebassets\" />
   <ContentRoot BasePath="/" Path="C:\Users\danny\Desktop\Tarea7\obj\Debug\net5.0\scopedcss\bundle\" />
 </StaticWebAssets>

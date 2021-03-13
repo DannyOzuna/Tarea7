@@ -13,6 +13,8 @@ using Tarea7.Data;
 using Tarea7.Data.Repositorio;
 using Microsoft.EntityFrameworkCore;
 using System.Net.Http;
+using MudBlazor.Services;
+using Blazored.Modal;
 
 namespace Tarea7
 {
@@ -39,6 +41,8 @@ namespace Tarea7
             services.AddScoped<IRepositorioVacuna, RepositorioVacuna>();
             services.AddScoped<IProvincias, RepositorioProvincia>();
             services.AddSingleton<HttpClient>();
+            services.AddMudServices();
+            services.AddBlazoredModal();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

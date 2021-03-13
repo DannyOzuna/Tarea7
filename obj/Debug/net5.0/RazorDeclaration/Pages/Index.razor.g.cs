@@ -96,6 +96,13 @@ using Tarea7.Data.Repositorio;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 13 "C:\Users\danny\Desktop\Tarea7\_Imports.razor"
+using MudBlazor;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/")]
     public partial class Index : Microsoft.AspNetCore.Components.ComponentBase
     {
@@ -104,6 +111,39 @@ using Tarea7.Data.Repositorio;
         {
         }
         #pragma warning restore 1998
+#nullable restore
+#line 16 "C:\Users\danny\Desktop\Tarea7\Pages\Index.razor"
+       
+    string prueba = "";
+    public List<ChartSeries> Series = new List<ChartSeries>()
+    {
+        new ChartSeries() { Name = "Serie 1", Data = new double[] { 90, 79, 72, 69, 62, 62, 55, 65, 70 } },
+        new ChartSeries() { Name = "Serie 2", Data = new double[] { 10, 41, 35, 51, 49, 62, 69, 91, 148 } },
+    };
+    public string[] XAxisLabels = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep" };
+
+    Random random = new Random();
+    public void RandomizeData()
+    {
+        var new_series = new List<ChartSeries>()
+        {
+            new ChartSeries() { Name = "Serie 1", Data = new double[9] },
+            new ChartSeries() { Name = "Serie 2", Data = new double[9] },
+        };
+        for (int i = 0; i < 9; i++)
+        {
+            new_series[0].Data[i] = random.NextDouble() * 100;
+            new_series[1].Data[i] = random.NextDouble() * 100;
+        }
+        Series = new_series;
+        StateHasChanged();
+    }
+
+#line default
+#line hidden
+#nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IRepositorioVacuna RepositorioVacuna { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IJSRuntime js { get; set; }
     }
 }
 #pragma warning restore 1591
