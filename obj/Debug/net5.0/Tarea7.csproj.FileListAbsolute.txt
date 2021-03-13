@@ -169,3 +169,7 @@ C:\Users\danny\Desktop\Tarea7\bin\Debug\net5.0\System.IO.Pipelines.dll
 C:\Users\danny\Desktop\Tarea7\bin\Debug\net5.0\BlazorInputMask.dll
 C:\Users\danny\Desktop\Tarea7\bin\Debug\net5.0\Blazored.Modal.dll
 C:\Users\danny\Desktop\Tarea7\bin\Debug\net5.0\Microsoft.JSInterop.WebAssembly.dll
+C:\Users\danny\Desktop\Tarea7\obj\Debug\net5.0\RazorDeclaration\Pages\Demo.razor.g.cs
+C:\Users\danny\Desktop\Tarea7\obj\Debug\net5.0\Razor\Pages\Demo.razor.g.cs
+C:\Users\danny\Desktop\Tarea7\obj\Debug\net5.0\RazorDeclaration\Pages\Configuracion.razor.g.cs
+C:\Users\danny\Desktop\Tarea7\obj\Debug\net5.0\Razor\Pages\Configuracion.razor.g.cs

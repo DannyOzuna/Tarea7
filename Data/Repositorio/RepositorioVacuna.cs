@@ -27,8 +27,14 @@ namespace Tarea7.Data.Repositorio{
             throw new NotImplementedException();
         }
         //Crea una Vacuna
-        public Task<Vacuna> Add(Vacuna Vacuna){
-            throw new NotImplementedException();
+        public async Task<Vacuna> Add(Vacuna Vacuna){
+          if(Vacuna != null)
+            {
+                await context.AddAsync(Vacuna);
+                await context.SaveChangesAsync();
+                return Vacuna;
+            }
+            return null;
         }
         //Elimina una Vacuna
         public Task Delete(int id){
