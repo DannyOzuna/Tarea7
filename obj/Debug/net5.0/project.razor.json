@@ -78,39 +78,6 @@
         }
       },
       {
-        "HashCode": -1069233560,
-        "Kind": "Components.Component",
-        "Name": "Tarea7.Pages.RegistroVacuna",
-        "AssemblyName": "Tarea7",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "RegistroVacuna"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Tarea7.Pages.RegistroVacuna"
-        }
-      },
-      {
-        "HashCode": -1877035274,
-        "Kind": "Components.Component",
-        "Name": "Tarea7.Pages.RegistroVacuna",
-        "AssemblyName": "Tarea7",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Tarea7.Pages.RegistroVacuna"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Tarea7.Pages.RegistroVacuna",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
         "HashCode": -144908218,
         "Kind": "Components.Component",
         "Name": "Tarea7.Pages.Index",
@@ -140,6 +107,39 @@
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
           "Common.TypeName": "Tarea7.Pages.Index",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -1069233560,
+        "Kind": "Components.Component",
+        "Name": "Tarea7.Pages.RegistroVacuna",
+        "AssemblyName": "Tarea7",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "RegistroVacuna"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Tarea7.Pages.RegistroVacuna"
+        }
+      },
+      {
+        "HashCode": -1877035274,
+        "Kind": "Components.Component",
+        "Name": "Tarea7.Pages.RegistroVacuna",
+        "AssemblyName": "Tarea7",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Tarea7.Pages.RegistroVacuna"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Tarea7.Pages.RegistroVacuna",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },
