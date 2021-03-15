@@ -1,0 +1,99 @@
+@page "/EditarVacuana/{id:int}"
+@inject IJSRuntime js
+@using System.Net.Http.Json
+@inject HttpClient Http
+@inject NavigationManager NavigationManager
+@using Tarea7.Models
+@using Tarea7.Data
+@using Tarea7.Data.Repositorio
+@inject IRepositorioVacuna RepositorioVacuna
+
+
+
+
+<div class="row justify-content-center mt-4">
+    <div class="col-8 shadow p-3 mb-5 bg-white rounded ">
+        <h2 class="col-12 alert alert-primary rounded text-center">Editar Vacuna</h2>
+        
+       
+           <EditForm Model="vacuna" OnValidSubmit="@(() => Editar())">
+  <div class="card-body shadow p-3 mb-5 bg-body rounded">
+                <DataAnnotationsValidator/> 
+                      @foreach (var item in listavacuna.Take(1))
+                      {
+                    <div class="row justify-content-center mb-3">
+                       <div class="col-4">
+                        <label>Id:</label>
+                        <InputNumber @bind-Value="item.id" class="form-control" aria-readonly="Activo"/>
+                        <ValidationMessage For="() =>vacuna.id"/>
+                    </div>
+
+                    
+                       <div class="col-4">
+                        <label>Marca:</label>
+                        <InputText @bind-Value="item.marca" class="form-control"/>
+                        <ValidationMessage For="() =>vacuna.marca"/>
+                    </div>
+
+                    <div class="col-4">
+                        <label>Cantidad:</label>
+                        <InputNumber @bind-Value="item.cantidad" class="form-control"/>
+                        <ValidationMessage For="() =>vacuna.cantidad"/>
+                    </div>
+                
+                        <div class="col-4">
+                            <label>Estado:</label>
+                            <InputSelect @bind-Value="item.estado" class="form-control">
+                                <option value="1">Activo</option>
+                                <option value="0">No Activo </option>
+                            </InputSelect>
+                        </div>
+                    </div>
+                     
+                      }
+                    <div class="footer">
+        <button type="submit" class="btn btn-primary">Actualizar</button>
+        <button type="button" class="btn btn-secondary" @onclick="Cancelar">Close</button>
+      </div>
+            </div>  
+ </EditForm>
+
+  
+</div>
+
+</div>
+
+
+@code {
+    [Parameter]
+    public int id {get; set;}
+
+    List<Vacuna> listavacuna = new List<Vacuna>();
+
+    Vacuna vacuna = new Vacuna();
+
+    protected override async Task OnInitializedAsync(){
+
+        listavacuna = await RepositorioVacuna.Getid(id);
+    }
+    
+    public async Task Cancelar(){
+        NavigationManager.NavigateTo("/Configuracion");
+    }
+
+
+    public async Task Editar(){
+        var confirmacion = await js.InvokeAsync<bool>("msjConfim", "Confimar", "Seguro que desea Actualizar?", "question");
+        if(confirmacion){
+            
+            await RepositorioVacuna.Update(vacuna);
+            await js.InvokeAsync<object>("msjAlert", "Actualizado Correctamente", "success");
+            NavigationManager.NavigateTo("/Configuracion");
+        }
+
+        else{
+            await js.InvokeAsync<object>("msjAlert", "UHHHHHHHHH ok", "success");
+        }
+        
+    }
+}

@@ -14,13 +14,71 @@
 <div class="row justify-content-center">
     <div class="col-8">
         <div class="alert alert-info text-center">
-            <h1>Agregar Vacunas</h1>
+            <h1>Configuracion de Vacuna</h1>
         </div>
     </div>
 </div>
 
 
-<EditForm Model="vacuna" OnValidSubmit="@(() => GuardarDatos())">
+<div class="d-flex bd-highlight">
+  
+  
+ 
+</div>
+
+
+<div class="d-flex bd-highlight">
+  <div class="p-2 flex-grow-1 bd-highlight"><button type="button" class="btn btn-primary p-2 flex-grow-1 bd-highlight" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Agregar Nueva Vacuna
+   </button></div>
+   
+
+   <div class="p-2 bd-highlight"> <button type="button" class="btn btn-danger p-2 bd-highlight" data-bs-toggle="modal" data-bs-target="#ModalEliminar">
+      Eliminar
+     </button> </div>
+ 
+ <div class="p-2 bd-highlight"> <button type="button" class="btn btn-success p-2 bd-highlight" data-bs-toggle="modal" data-bs-target="#ModalEditarbuscar">
+      Editar
+     </button> </div>
+
+      
+</div>
+
+<br/>
+<br/>
+
+<!-- Modal Eliminar -->
+<div class="modal fade" id="ModalEliminar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel" >Digite el id que quiere Eliminar</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        
+        <input type="text" class="form-control" @bind-value="@id"/>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" >Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Agregar-->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Agregar Vacuna</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+       <EditForm Model="vacuna" OnValidSubmit="@(() => GuardarDatos())">
   <div class="card-body shadow p-3 mb-5 bg-body rounded">
                 <DataAnnotationsValidator/>
                 <div class="row justify-content-center mb-3">
@@ -45,90 +103,109 @@
                         </div>
                     </div>
 
-                    <div class="card-footer">
-                <div class="row justify-content-center">
-                
-                    <button type="submit" class="btn btn-outline-primary col-6">Guardar</button>
-            
-                    <button type="submit" class="btn btn-outline-primary col-6">Mostrar Vacunas</button>
-                </div>
-                
-            </div>
-
+                    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Agregar</button>
+      </div>
             </div>
  </EditForm>
+      </div> 
+    </div>
+  </div>
+</div>
 
 
-<MudTable Items="@listarvacuna.Take(4)" Hover="true" Breakpoint="Breakpoint.Sm">
-    <HeaderContent>
-        <MudTh>Id</MudTh>
-        <MudTh>Marca</MudTh>
-        <MudTh>Cantidad en Stock</MudTh>
-        <MudTh>Estado</MudTh>
-        <MudTh>Opcion</MudTh>
-    </HeaderContent>
-    <RowTemplate>
-        <MudTd DataLabel="Id">@context.id</MudTd>
-        <MudTd DataLabel="marca">@context.marca</MudTd>
-        <MudTd DataLabel="cantidad">@context.cantidad</MudTd>
-         <MudTd DataLabel="estado">@context.estado</MudTd>
-        <MudTd DataLabel="Editar"> 
-            <button class="btn btn-primary">Editar </button>
-        </MudTd>
-
-         <MudTd DataLabel="Eliminar"> 
-            <button class="btn btn-danger">Eliminar </button>
-        </MudTd>
-    </RowTemplate>
-</MudTable>
+<!-- Modal Editar-->
 
 
-@* 
-<MudTable Hover="true" Breakpoint="Breakpoint.Sm">
-    <HeaderContent>
-        <MudTh>Id</MudTh>
-        <MudTh>Marca</MudTh>
-        <MudTh>Cantidad en Stock</MudTh>
-        <MudTh>Estado</MudTh>
-        <MudTh>Opcion</MudTh>
-    </HeaderContent>
-    <RowTemplate>
-        @foreach (Vacuna item in listarvacuna)
+
+
+
+
+<!-- Esta es la tabla-->
+<table class="table table">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Marca</th>
+      <th scope="col">Cantidad</th>
+      <th scope="col">Estatus</th>
+      <th scope="col">Opciones</th>
+    </tr>
+  </thead>
+  <tbody>
+        @foreach (var item in listarvacuna)
         {
+            <tr>
+               <td>@item.id</td>
+               <td>@item.marca</td>
+               <td>@item.cantidad</td>
+               <td>@item.estado</td>
+              <td> 
+                <a href="/EditarVacuana/@item.id" class="btn btn-success">Editar</a>
+                <button class="btn btn-danger" @onclick="(() => EliminarVacuna(item.id))">Eliminar</button>
 
-        <MudTd DataLabel="Id">@item.id</MudTd>
-        <MudTd DataLabel="marca">@item.marca</MudTd>
-        <MudTd DataLabel="cantidad">@item.cantidad</MudTd>
-         <MudTd DataLabel="estado">@item.estado</MudTd>
-        <MudTd DataLabel="Editar"> 
-            <button class="btn btn-primary">Editar </button>
-        </MudTd>
-
-         <MudTd DataLabel="Eliminar"> 
-            <button class="btn btn-danger">Eliminar </button>
-        </MudTd>
+              </td>
+            </tr>
         }
-        
-    </RowTemplate>
-</MudTable> *@
+      
+  </tbody>
+</table>
 
 
 
 @code
 {
+     [Parameter]
+    public int id {get; set;}
 
+    public int idEditar {get; set;}
     Vacuna vacuna = new Vacuna();
     List<Vacuna> listarvacuna = new List<Vacuna>();
+    List<Vacuna> lista = new List<Vacuna>();
+
+    //  vacunalista VAS = new vacunalista();
+        
     
-    protected override async Task OnInitializedAsync(){
+    protected override async Task OnInitializedAsync()
+    {
         listarvacuna = await RepositorioVacuna.Get();
+
+
+
     }
+
+     
+    public async Task buscar(){
+
+      NavigationManager.NavigateTo("/EditarVacuana/"+ idEditar);
+    }
+
+        public async Task EliminarVacuna(int id)
+        {
+            var confimacion = await js.InvokeAsync<bool>("msjConfim", "Confimar", "Seguro de borrar la vacuna?", "question");
+            if(confimacion)
+            {
+                 await RepositorioVacuna.Delete(id);
+                  await js.InvokeAsync<object>("msjAlert", "Eliminado Correctamente", "success");
+                    listarvacuna = await RepositorioVacuna.Get();
+                
+            }
+            else
+            {
+                await js.InvokeAsync<object>("msjAlert", "Ok", "success");
+            }
+
+        }
 
   public async Task GuardarDatos()
   {    
       var rs = await RepositorioVacuna.Add(vacuna);
       if(rs != null){
             await js.InvokeAsync<object>("msjAlert", "Registrado Correctamente", "success");
+              listarvacuna = await RepositorioVacuna.Get();
+                NavigationManager.NavigateTo("/Configuracion");
+                 
         }  
   }
 

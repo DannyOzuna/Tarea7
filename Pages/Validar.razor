@@ -187,6 +187,6 @@
             var rsModificar = await RepositorioPersona.Update(id, persona);
         }
         var rs = await js.InvokeAsync<object>("msjAlert", "Registrado Correctamente", "success");
-        NavigationManager.NavigateTo("/registrovacuna/"+id);
+        NavigationManager.NavigateTo("/registrovacuna/"+persona.id);
     }
 }

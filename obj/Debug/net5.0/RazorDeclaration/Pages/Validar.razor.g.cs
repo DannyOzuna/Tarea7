@@ -13,105 +13,105 @@ namespace Tarea7.Pages
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Components;
 #nullable restore
-#line 1 "C:\Users\danny\Desktop\Tarea7\_Imports.razor"
+#line 1 "D:\5 cuatrimestre\Programación III\unidad 7\Tarea7\_Imports.razor"
 using System.Net.Http;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\danny\Desktop\Tarea7\_Imports.razor"
+#line 2 "D:\5 cuatrimestre\Programación III\unidad 7\Tarea7\_Imports.razor"
 using Microsoft.AspNetCore.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "C:\Users\danny\Desktop\Tarea7\_Imports.razor"
+#line 3 "D:\5 cuatrimestre\Programación III\unidad 7\Tarea7\_Imports.razor"
 using Microsoft.AspNetCore.Components.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "C:\Users\danny\Desktop\Tarea7\_Imports.razor"
+#line 4 "D:\5 cuatrimestre\Programación III\unidad 7\Tarea7\_Imports.razor"
 using Microsoft.AspNetCore.Components.Forms;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "C:\Users\danny\Desktop\Tarea7\_Imports.razor"
+#line 5 "D:\5 cuatrimestre\Programación III\unidad 7\Tarea7\_Imports.razor"
 using Microsoft.AspNetCore.Components.Routing;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 6 "C:\Users\danny\Desktop\Tarea7\_Imports.razor"
+#line 6 "D:\5 cuatrimestre\Programación III\unidad 7\Tarea7\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 7 "C:\Users\danny\Desktop\Tarea7\_Imports.razor"
+#line 7 "D:\5 cuatrimestre\Programación III\unidad 7\Tarea7\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web.Virtualization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 8 "C:\Users\danny\Desktop\Tarea7\_Imports.razor"
+#line 8 "D:\5 cuatrimestre\Programación III\unidad 7\Tarea7\_Imports.razor"
 using Microsoft.JSInterop;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 9 "C:\Users\danny\Desktop\Tarea7\_Imports.razor"
+#line 9 "D:\5 cuatrimestre\Programación III\unidad 7\Tarea7\_Imports.razor"
 using Tarea7;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 10 "C:\Users\danny\Desktop\Tarea7\_Imports.razor"
+#line 10 "D:\5 cuatrimestre\Programación III\unidad 7\Tarea7\_Imports.razor"
 using Tarea7.Shared;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 13 "C:\Users\danny\Desktop\Tarea7\_Imports.razor"
+#line 13 "D:\5 cuatrimestre\Programación III\unidad 7\Tarea7\_Imports.razor"
 using MudBlazor;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\danny\Desktop\Tarea7\Pages\Validar.razor"
+#line 2 "D:\5 cuatrimestre\Programación III\unidad 7\Tarea7\Pages\Validar.razor"
 using System.Net.Http.Json;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "C:\Users\danny\Desktop\Tarea7\Pages\Validar.razor"
+#line 5 "D:\5 cuatrimestre\Programación III\unidad 7\Tarea7\Pages\Validar.razor"
 using Tarea7.Models;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 6 "C:\Users\danny\Desktop\Tarea7\Pages\Validar.razor"
+#line 6 "D:\5 cuatrimestre\Programación III\unidad 7\Tarea7\Pages\Validar.razor"
 using Tarea7.Data;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 7 "C:\Users\danny\Desktop\Tarea7\Pages\Validar.razor"
+#line 7 "D:\5 cuatrimestre\Programación III\unidad 7\Tarea7\Pages\Validar.razor"
 using Tarea7.Data.Repositorio;
 
 #line default
@@ -126,7 +126,7 @@ using Tarea7.Data.Repositorio;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 128 "C:\Users\danny\Desktop\Tarea7\Pages\Validar.razor"
+#line 128 "D:\5 cuatrimestre\Programación III\unidad 7\Tarea7\Pages\Validar.razor"
       
     int id = 0;
     string cedula = "";
@@ -189,7 +189,7 @@ using Tarea7.Data.Repositorio;
             var rsModificar = await RepositorioPersona.Update(id, persona);
         }
         var rs = await js.InvokeAsync<object>("msjAlert", "Registrado Correctamente", "success");
-        NavigationManager.NavigateTo("/registrovacuna/"+id);
+        NavigationManager.NavigateTo("/registrovacuna/"+persona.id);
     }
 
 #line default

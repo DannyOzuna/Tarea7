@@ -13,11 +13,13 @@ namespace Tarea7.Data.Repositorio{
         //Obtener una Vacuna en especifico
         public Task<Vacuna> Get(int id);
         //Actulizar una Vacuna
-        public Task<Vacuna> Update(int id, Vacuna Vacuna);
+        public Task<Vacuna> Update(Vacuna Vacuna);
         //Crea una Vacuna
         public Task<Vacuna> Add(Vacuna Vacuna);
         //Elimina una Vacuna
         public Task Delete(int id);
+
+         public Task<List<Vacuna>> Getid(int id);
 
 
     }

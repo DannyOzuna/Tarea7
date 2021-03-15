@@ -10,5 +10,6 @@ namespace Tarea7.Data{
         public DbSet<Persona> Persona {get; set;}
         public DbSet<Vacuna> Vacuna {get; set;}
         public DbSet<Provincias> Provincias {get; set;}
+ 
     }    
 }

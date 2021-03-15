@@ -37,9 +37,11 @@
     [Parameter]
     public int id {get; set;}
     List<PersonaJoin> personaJoin = null;
+
     protected override async Task OnInitializedAsync(){
         personaJoin = await RepositorioPersona.Get(id);
     }
+    
 
    public async Task EliminarDatos(){ 
         var confimacion = await js.InvokeAsync<bool>("msjConfim", "Confimar", "Seguro de borrar el registro?", "question");
