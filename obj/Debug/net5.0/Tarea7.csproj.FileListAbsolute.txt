@@ -296,3 +296,5 @@ D:\5 cuatrimestre\Programación III\unidad 7\Tarea7\obj\Debug\net5.0\Tarea7.pdb
 D:\5 cuatrimestre\Programación III\unidad 7\Tarea7\obj\Debug\net5.0\Tarea7.genruntimeconfig.cache
 D:\5 cuatrimestre\Programación III\unidad 7\Tarea7\obj\Debug\net5.0\RazorDeclaration\Pages\EditarVacuana.razor.g.cs
 D:\5 cuatrimestre\Programación III\unidad 7\Tarea7\obj\Debug\net5.0\Razor\Pages\EditarVacuana.razor.g.cs
+C:\Users\danny\Desktop\Tarea7\obj\Debug\net5.0\RazorDeclaration\Pages\EditarVacuana.razor.g.cs
+C:\Users\danny\Desktop\Tarea7\obj\Debug\net5.0\Razor\Pages\EditarVacuana.razor.g.cs
