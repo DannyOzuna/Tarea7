@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "DNzNdBjrQi4qkY3SZMuXzlFozc88hjOpvYPVMcNEJoJPP1EvnOQyp+f57/pYhz64DmBZVda1IDeRjBnzuO4KrQ==",
+  "dgSpecHash": "nA4v4GSYaz1rNmBJriHST0wzG+ceYENQFDIA38FUOVn7s1oXFNXsgBESpbKCb7JGNUSccDR6r+Z4ioFSE9e5lQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\danny\\Desktop\\Tarea7\\Tarea7.csproj",
   "expectedPackageFiles": [
@@ -44,6 +44,7 @@
     "C:\\Users\\danny\\.nuget\\packages\\mudblazor\\5.0.5\\mudblazor.5.0.5.nupkg.sha512",
     "C:\\Users\\danny\\.nuget\\packages\\netstandard.library\\2.0.0\\netstandard.library.2.0.0.nupkg.sha512",
     "C:\\Users\\danny\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
+    "C:\\Users\\danny\\.nuget\\packages\\radzen.blazor\\3.1.6\\radzen.blazor.3.1.6.nupkg.sha512",
     "C:\\Users\\danny\\.nuget\\packages\\syncfusion.blazor\\18.4.0.47\\syncfusion.blazor.18.4.0.47.nupkg.sha512",
     "C:\\Users\\danny\\.nuget\\packages\\syncfusion.excelexport.net.core\\18.4.0.47\\syncfusion.excelexport.net.core.18.4.0.47.nupkg.sha512",
     "C:\\Users\\danny\\.nuget\\packages\\syncfusion.licensing\\18.4.0.47\\syncfusion.licensing.18.4.0.47.nupkg.sha512",
@@ -55,6 +56,7 @@
     "C:\\Users\\danny\\.nuget\\packages\\system.drawing.common\\4.7.0\\system.drawing.common.4.7.0.nupkg.sha512",
     "C:\\Users\\danny\\.nuget\\packages\\system.identitymodel.tokens.jwt\\6.8.0\\system.identitymodel.tokens.jwt.6.8.0.nupkg.sha512",
     "C:\\Users\\danny\\.nuget\\packages\\system.io.pipelines\\5.0.1\\system.io.pipelines.5.0.1.nupkg.sha512",
+    "C:\\Users\\danny\\.nuget\\packages\\system.linq.dynamic.core\\1.2.2\\system.linq.dynamic.core.1.2.2.nupkg.sha512",
     "C:\\Users\\danny\\.nuget\\packages\\system.runtime.caching\\4.7.0\\system.runtime.caching.4.7.0.nupkg.sha512",
     "C:\\Users\\danny\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0-preview.1.21102.12\\system.runtime.compilerservices.unsafe.6.0.0-preview.1.21102.12.nupkg.sha512",
     "C:\\Users\\danny\\.nuget\\packages\\system.security.accesscontrol\\4.7.0\\system.security.accesscontrol.4.7.0.nupkg.sha512",

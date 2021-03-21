@@ -14,7 +14,7 @@ using Tarea7.Data.Repositorio;
 using Microsoft.EntityFrameworkCore;
 using System.Net.Http;
 using MudBlazor.Services;
-
+using Radzen;
 namespace Tarea7
 {
     public class Startup
@@ -41,6 +41,10 @@ namespace Tarea7
             services.AddScoped<IProvincias, RepositorioProvincia>();
             services.AddSingleton<HttpClient>();
             services.AddMudServices();
+            services.AddScoped<DialogService>();
+            services.AddScoped<NotificationService>();
+            services.AddScoped<TooltipService>();
+            services.AddScoped<ContextMenuService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

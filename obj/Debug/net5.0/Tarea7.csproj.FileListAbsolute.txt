@@ -302,3 +302,7 @@ C:\Users\danny\Desktop\Tarea7\obj\Debug\net5.0\RazorDeclaration\Pages\ListaVacun
 C:\Users\danny\Desktop\Tarea7\obj\Debug\net5.0\RazorDeclaration\Pages\Zodiaco.razor.g.cs
 C:\Users\danny\Desktop\Tarea7\obj\Debug\net5.0\Razor\Pages\ListaVacuna.razor.g.cs
 C:\Users\danny\Desktop\Tarea7\obj\Debug\net5.0\Razor\Pages\Zodiaco.razor.g.cs
+C:\Users\danny\Desktop\Tarea7\bin\Debug\net5.0\Radzen.Blazor.dll
+C:\Users\danny\Desktop\Tarea7\bin\Debug\net5.0\System.Linq.Dynamic.Core.dll
+C:\Users\danny\Desktop\Tarea7\obj\Debug\net5.0\RazorDeclaration\Pages\Mapa.razor.g.cs
+C:\Users\danny\Desktop\Tarea7\obj\Debug\net5.0\Razor\Pages\Mapa.razor.g.cs

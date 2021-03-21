@@ -103,6 +103,20 @@ using MudBlazor;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 14 "C:\Users\danny\Desktop\Tarea7\_Imports.razor"
+using Radzen;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 15 "C:\Users\danny\Desktop\Tarea7\_Imports.razor"
+using Radzen.Blazor;
+
+#line default
+#line hidden
+#nullable disable
     public partial class NavMenu : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -111,7 +125,7 @@ using MudBlazor;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 43 "C:\Users\danny\Desktop\Tarea7\Shared\NavMenu.razor"
+#line 48 "C:\Users\danny\Desktop\Tarea7\Shared\NavMenu.razor"
        
     private bool collapseNavMenu = true;
 

@@ -1,0 +1,21 @@
+@page "/googlemap"
+
+<div class="row justify-content-center">
+    <div class="col-8 alert alert-info text-center">
+        <h1>Localización de Persona Vacunadas</h1>
+    </div>
+</div>
+
+<div class="row justify-content-center mt-5">
+    <div class="col-md-8">
+        <RadzenGoogleMap style="height: 600px" Zoom=@zoom Center=@(new GoogleMapPosition() { Lat = 18.5833300, Lng = -69.8333300 })>
+            <Markers>
+                <RadzenGoogleMapMarker Title="London" Label="London" Position=@(new GoogleMapPosition() { Lat = 51.5074, Lng = 0.1278 }) />
+            </Markers>
+        </RadzenGoogleMap>
+    </div>
+</div>
+
+@code {
+    int zoom = 5;
+}
