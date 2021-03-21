@@ -20,6 +20,8 @@ namespace Tarea7.Data.Repositorio{
         public Task Delete(int id);
 
          public Task<List<Vacuna>> Getid(int id);
+         public Task<List<ZodiacoJoin>> ConsultaZodiaco();
+         public Task<List<VacunaJoin>> Consulta();
 
 
     }

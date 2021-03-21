@@ -298,3 +298,7 @@ D:\5 cuatrimestre\Programación III\unidad 7\Tarea7\obj\Debug\net5.0\RazorDeclar
 D:\5 cuatrimestre\Programación III\unidad 7\Tarea7\obj\Debug\net5.0\Razor\Pages\EditarVacuana.razor.g.cs
 C:\Users\danny\Desktop\Tarea7\obj\Debug\net5.0\RazorDeclaration\Pages\EditarVacuana.razor.g.cs
 C:\Users\danny\Desktop\Tarea7\obj\Debug\net5.0\Razor\Pages\EditarVacuana.razor.g.cs
+C:\Users\danny\Desktop\Tarea7\obj\Debug\net5.0\RazorDeclaration\Pages\ListaVacuna.razor.g.cs
+C:\Users\danny\Desktop\Tarea7\obj\Debug\net5.0\RazorDeclaration\Pages\Zodiaco.razor.g.cs
+C:\Users\danny\Desktop\Tarea7\obj\Debug\net5.0\Razor\Pages\ListaVacuna.razor.g.cs
+C:\Users\danny\Desktop\Tarea7\obj\Debug\net5.0\Razor\Pages\Zodiaco.razor.g.cs

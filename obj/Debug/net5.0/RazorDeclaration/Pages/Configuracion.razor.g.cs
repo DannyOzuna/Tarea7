@@ -126,7 +126,7 @@ using Tarea7.Data.Repositorio;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 158 "C:\Users\danny\Desktop\Tarea7\Pages\Configuracion.razor"
+#line 152 "C:\Users\danny\Desktop\Tarea7\Pages\Configuracion.razor"
  
      [Parameter]
     public int id {get; set;}

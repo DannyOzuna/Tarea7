@@ -71,5 +71,32 @@ namespace Tarea7.Data.Repositorio{
             context.Remove(vacunadb);
             await context.SaveChangesAsync();
         }
+        public async Task<List<VacunaJoin>> Consulta(){
+            var cantidadperson = await (from v in context.Vacuna
+                                        join p in context.Persona
+                                        on v.id equals p.id_vacuna
+                                        group v by v.marca into Vacunax
+                                        //from ocs in Vacunax.DefaultIfEmpty()
+                                        select new VacunaJoin{
+                                            marca = Vacunax.Key,
+                                            cantidad = Vacunax.Count()
+                                        }).ToListAsync();
+          
+            return cantidadperson;
+        }
+
+         public async Task<List<ZodiacoJoin>> ConsultaZodiaco(){
+            var cantidadsigno = await (from v in context.Vacuna
+                                        join p in context.Persona
+                                        on v.id equals p.id_vacuna
+                                        group v by p.SignoZodiacal into Vacunar
+                                        //from ocs in Vacunax.DefaultIfEmpty()
+                                        select new ZodiacoJoin{
+                                            zodiaco =Vacunar.Key,
+                                            cantidad = Vacunar.Count()
+                                        }).ToListAsync();
+          
+            return cantidadsigno;
+        }
     }
 }

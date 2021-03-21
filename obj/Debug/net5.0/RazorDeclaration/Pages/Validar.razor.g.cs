@@ -188,8 +188,12 @@ using Tarea7.Data.Repositorio;
         if(rsCrear == null){
             var rsModificar = await RepositorioPersona.Update(id, persona);
         }
+        var ver =  await RepositorioPersona.Get(cedula);
+        if(ver !=  null){
+            id = ver.id;
+        }
         var rs = await js.InvokeAsync<object>("msjAlert", "Registrado Correctamente", "success");
-        NavigationManager.NavigateTo("/registrovacuna/"+persona.id);
+        NavigationManager.NavigateTo("/registrovacuna/"+id);
     }
 
 #line default

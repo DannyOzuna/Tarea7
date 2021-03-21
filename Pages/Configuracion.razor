@@ -31,15 +31,7 @@
   <div class="p-2 flex-grow-1 bd-highlight"><button type="button" class="btn btn-primary p-2 flex-grow-1 bd-highlight" data-bs-toggle="modal" data-bs-target="#exampleModal">
   Agregar Nueva Vacuna
    </button></div>
-   
-
-   <div class="p-2 bd-highlight"> <button type="button" class="btn btn-danger p-2 bd-highlight" data-bs-toggle="modal" data-bs-target="#ModalEliminar">
-      Eliminar
-     </button> </div>
- 
- <div class="p-2 bd-highlight"> <button type="button" class="btn btn-success p-2 bd-highlight" data-bs-toggle="modal" data-bs-target="#ModalEditarbuscar">
-      Editar
-     </button> </div>
+  
 
       
 </div>
@@ -123,34 +115,36 @@
 
 
 <!-- Esta es la tabla-->
-<table class="table table">
-  <thead>
-    <tr>
-      <th scope="col">Id</th>
-      <th scope="col">Marca</th>
-      <th scope="col">Cantidad</th>
-      <th scope="col">Estatus</th>
-      <th scope="col">Opciones</th>
-    </tr>
-  </thead>
-  <tbody>
+<div class="row">
+  <div class="col-12">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Marca</th>
+          <th scope="col">Cantidad</th>
+          <th scope="col">Estatus</th>
+          <th scope="col">Opciones</th>
+        </tr>
+      </thead>
+      <tbody>
         @foreach (var item in listarvacuna)
         {
-            <tr>
-               <td>@item.id</td>
-               <td>@item.marca</td>
-               <td>@item.cantidad</td>
-               <td>@item.estado</td>
-              <td> 
-                <a href="/EditarVacuana/@item.id" class="btn btn-success">Editar</a>
-                <button class="btn btn-danger" @onclick="(() => EliminarVacuna(item.id))">Eliminar</button>
-
-              </td>
-            </tr>
+          <tr>
+            <td>@item.id</td>
+            <td>@item.marca</td>
+            <td>@item.cantidad</td>
+            <td>@item.estado</td>
+            <td> 
+              <a href="/EditarVacuana/@item.id" class="btn btn-success">Editar</a>
+              <button class="btn btn-danger" @onclick="(() => EliminarVacuna(item.id))">Eliminar</button>
+            </td>
+          </tr>
         }
-      
-  </tbody>
-</table>
+      </tbody>
+    </table>
+  </div>
+</div>
 
 
 
